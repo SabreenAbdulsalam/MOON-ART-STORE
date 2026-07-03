@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Art - متجر الهدايا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; padding: 0;
+            min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            background-image: url('background.jpg');
+            background-size: cover; background-position: center;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            padding: 40px;
+            width: 85%;
+            max-width: 900px;
+            min-height: 500px;
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+            color: white;
+            /* تأثير الوميض الثابت على الأطراف */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden; /* لمنع الوميض المتحرك من الخروج عن حدود الزجاجة */
+        }
+
+        /* الوميض المار عبر الزجاج */
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.4) 50%, 
+                transparent 70%
+            );
+            animation: shine 8s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .logo { width: 500px; height: auto; max-width: 100%; }
+        
+        .description { 
+            font-size: 1.7rem; 
+            line-height: 1.8; 
+            margin: 0; 
+            color: rgb(8, 8, 8);
+        }
+
+        .cta-btn {
+
+    background:
+    linear-gradient(
+    135deg,
+    #7c4dff,
+    #d4af37
+    );
+
+    color:white;
+
+    padding:20px 70px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:1.5rem;
+
+    display:inline-block;
+
+    box-shadow:
+    0 10px 30px rgba(212,175,55,.25);
+
+    transition:
+    transform .4s ease,
+    box-shadow .4s ease,
+    filter .4s ease;
+}
+
+.cta-btn:hover {
+
+    transform:
+    translateY(-5px)
+    scale(1.04);
+
+    filter:brightness(1.1);
+
+    box-shadow:
+    0 20px 50px rgba(212,175,55,.45);
+}
+.cta-btn{
+    position:relative;
+    overflow:hidden;
+}
+
+.cta-btn::before{
+
+    content:'';
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:50%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.8),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    animation:shine 8s infinite;
+
+    pointer-events:none;
+}
+
+@keyframes shine{
+
+    0%{
+        left:-150%;
+    }
+
+    100%{
+        left:250%;
+    }
+
+}
+
+        /* تنسيق خاص للجوال */
+        @media (max-width: 768px) {
+            .glass-card { padding: 20px; gap: 20px; }
+            .logo { width: 300px; }
+            .description { font-size: 1.2rem; }
+            .cta-btn { padding: 15px 40px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card">
+        <img src="logo.png" alt="Logo" class="logo">
+        <p class="description">
+            من قلب الإبداع نغزلُ لكم هدايا وقطعاً فنية، لتكون رفيقة لحظاتكم السعيدة وذكرى تسكنُ القلوب قبل الرفوف.<br>
+            أهلاً بك في عالمٍ يُقدّر قيمة القطعة الواحدة المصنوعة بشغف.
+        </p>
+        <a href="store.html" class="cta-btn">رحلة في عالم الإتقان</a>
+    </div>
+
+</body>
+</html>
